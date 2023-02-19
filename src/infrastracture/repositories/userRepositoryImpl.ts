@@ -8,11 +8,13 @@ import { UserModel } from "../model/userModel";
 //ここでRepositoryの中身を実装
 
 export class UserRepositoryImpl implements UserRepository  {
+    baseUrl: string = `https://randomuser.me/api/`;
+
+
     async getUsers(perPage: Number, page: Number): Promise<User[]> {
-        const baseUrl = `https://randomuser.me/api/`;
         let userArray:User[] = [];
         try {
-            let value = await axios.get(`${baseUrl}?page=${page}&format=json&results=${perPage}`);
+            let value = await axios.get(`${this.baseUrl}?page=${page}&format=json&results=${perPage}`);
             if (value.status === 200 || value.status === 201) {
                 value.data.results.forEach(function(result: any){
                     const user =  new UserModel(result);

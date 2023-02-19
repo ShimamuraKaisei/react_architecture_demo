@@ -17,16 +17,6 @@ type Props = {
 
 }
 
-// export class FakeUserRepository implements UserRepository {
-//     async getUsers(perPage: Number, page: Number): Promise<User[]> {
-//         let userArray:User[] = [];
-//         let testDate = new Date()
-//         const testUser = new User(`test_id` , testDate, `test_gender` , `test_email` , `test_name` , `test_phone` , `test_picture`);
-//         userArray.push(testUser);
-//         return userArray;
-//     }
-// }
-
 
 
 export const TopPage: React.FC<Props> = (props) => {
@@ -67,7 +57,7 @@ export const TopPage: React.FC<Props> = (props) => {
                 <Button
                     backgroundColor={`yellow.200`}
                     onClick={async()=>{
-                        const value = await userRepositoryProvider.getUsers(10,1);
+                        const value = await userRepositoryProvider.getUsers(0,1);
                         console.log(value)
                     }}
                 >

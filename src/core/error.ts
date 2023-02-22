@@ -1,3 +1,5 @@
+
+
 // 共通エラークラス
 export class BaseError extends Error {
     constructor(e?: string) {

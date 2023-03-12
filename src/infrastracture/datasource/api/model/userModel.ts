@@ -1,4 +1,4 @@
-import { User } from "../../domain/entities/user";
+import { User } from "../../../../domain/entities/user";
 
 //何から作られるか知ってる
 export class UserModel extends User {

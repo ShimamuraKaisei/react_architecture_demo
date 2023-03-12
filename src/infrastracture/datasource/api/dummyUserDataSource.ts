@@ -1,8 +1,8 @@
-import { User } from "../../domain/entities/user";
-import { UserRepository } from "../../domain/repositories/userRepository";
+import { User } from "../../../domain/entities/user";
+import { UserDataSource } from "../userDataSource";
 
+export class DummyUserDataSourceImpl implements UserDataSource{
 
-export class DummyUserRepositoryImpl implements UserRepository {
     async getUsers(perPage: Number, page: Number): Promise<User[]> {
         let userArray:User[] = [];
         let testDate = new Date()

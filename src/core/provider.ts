@@ -1,7 +1,12 @@
 import { User } from "../domain/entities/user";
 import { UserRepository } from "../domain/repositories/userRepository";
 import { UserRepositoryImpl } from "../infrastracture/repositories/userRepositoryImpl";
-import { DummyUserRepositoryImpl } from "../infrastracture/dummyRepositories/dummyUserRepositories";
+import { UserDataSourceImpl } from "../infrastracture/datasource/api/userDataSourceImpl";
+import { DummyUserDataSourceImpl } from "../infrastracture/datasource/api/dummyUserDataSource";
 
-export const userRepositoryProvider:UserRepository = new UserRepositoryImpl;
-// export const userRepositoryProvider:UserRepository = new DummyUserRepositoryImpl;
+
+const userDataSource = new UserDataSourceImpl;
+// const userDataSource = new DummyUserDataSourceImpl;
+
+
+export const userRepositoryProvider:UserRepository = new UserRepositoryImpl(userDataSource);

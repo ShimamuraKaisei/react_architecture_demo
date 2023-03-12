@@ -6,7 +6,7 @@ import * as ethers from 'ethers';
 
 
 import axios from "axios";
-import { UserModel } from "../../infrastracture/model/userModel";
+import { UserModel } from "../../infrastracture/datasource/api/model/userModel";
 import { User } from '../../domain/entities/user';
 
 import { UserRepository } from "../../domain/repositories/userRepository";
@@ -57,7 +57,7 @@ export const TopPage: React.FC<Props> = (props) => {
                 <Button
                     backgroundColor={`yellow.200`}
                     onClick={async()=>{
-                        const value = await userRepositoryProvider.getUsers(0,1);
+                        const value = await userRepositoryProvider.getUsers(10,10);
                         console.log(value)
                     }}
                 >
